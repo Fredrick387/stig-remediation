@@ -15,8 +15,8 @@ disabling it if currently enabled.
 This approach avoids deprecated tools and does not assume the account name.
 
 .NOTES
-Author        : <Your Name>
-Date Created  : <YYYY-MM-DD>
+Author        : Fredrick Wilson
+Date Created  : 2026-01-01
 Tested On     : Windows 11 Pro 64-bit (Azure VM)
 #>
 
