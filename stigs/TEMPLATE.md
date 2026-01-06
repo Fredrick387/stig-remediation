@@ -25,7 +25,7 @@
 ### PowerShell Remediation Script
 
 ```powershell
-```
+
 <#
 .SYNOPSIS
     Brief description of what this script enforces.
@@ -44,6 +44,6 @@
 
 # Remediation code here
 
-
+```
 ---
 
