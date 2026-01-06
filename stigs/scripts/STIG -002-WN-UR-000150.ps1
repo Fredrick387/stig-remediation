@@ -14,8 +14,8 @@ The compliant state allows Administrators to retain this privilege while
 preventing assignment to non-administrative users or groups.
 
 .NOTES
-Author        : <Your Name>
-Date Created  : <YYYY-MM-DD>
+Author        : Fredrick Wilson
+Date Created  : 2026-01-01
 Tested On     : Windows 11 Pro / Enterprise 64-bit (Azure VM)
 #>
 
