@@ -37,8 +37,8 @@
     Short explanation of the configuration being enforced and why.
 
 .NOTES
-    Author        : <Your Name or Initials>
-    Date Created  : <YYYY-MM-DD>
+    Author        :
+    Date Created  :
     Tested On     : <OS / Build if known>
 #>
 
