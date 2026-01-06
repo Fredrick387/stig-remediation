@@ -1,0 +1,43 @@
+# STIG: WN11-UR-000155 – Act as part of the operating system
+
+## System / Scope
+- System: Windows 11 Enterprise 64-bit
+- Environment: Domain-joined virtual machine
+- Role of system: User workstation within Active Directory
+
+## Finding
+- The “Act as part of the operating system” user right (SeTcbPrivilege) was reviewed for improper assignment.
+- Any assignment of this right represents a critical privilege escalation risk.
+
+## Security Impact
+- Grants the ability to impersonate any user and bypass authentication controls.
+- Misuse allows complete system compromise and credential abuse.
+
+## Remediation Performed
+- Removed all assignments from the SeTcbPrivilege user right.
+- Enforced via Local Security Policy using `secedit` to ensure no accounts retain the privilege.
+
+### PowerShell Remediation Script
+```powershell
+# Export current local security policy
+$cfg = "$env:TEMP\secpol.cfg"
+secedit /export /cfg $cfg /quiet
+
+# Remove any assignments to SeTcbPrivilege
+(Get-Content $cfg) |
+    ForEach-Object {
+        if ($_ -match '^SeTcbPrivilege') {
+            'SeTcbPrivilege ='
+        } else {
+            $_
+        }
+    } | Set-Content $cfg
+
+# Apply updated user rights policy
+secedit /configure /db secedit.sdb /cfg $cfg /areas USER_RIGHTS /quiet
+```
+##Validation
+
+Verified no account is assigned the SeTcbPrivilege.
+
+Confirmed effective privileges using whoami /priv.
